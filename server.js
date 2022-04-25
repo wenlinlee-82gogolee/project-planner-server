@@ -41,4 +41,5 @@ app.use(express.json());
 const projectsRouter = require('./routes/projects');
 app.use('/projects', projectsRouter); //path of our route
 
-app.listen(3000, () => console.log('server running on port 3000'));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server Started on port ${port}`));
