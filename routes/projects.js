@@ -31,17 +31,17 @@ router.post('/', async (req, res) => {
 });
 
 router.patch('/:id', getProject, async (req, res) => {
-  if (req.body.title !== null) {
-    res.project.title = req.body.title;
-  }
-  if (req.body.details !== null) {
-    res.project.details = req.body.details;
-  }
-  if (req.body.complete !== null) {
-    res.project.complete = req.body.complete;
-  }
-
   try {
+    if (req.body.title) {
+      res.project.title = req.body.title;
+    }
+    if (req.body.details) {
+      res.project.details = req.body.details;
+    }
+    if (req.body.complete) {
+      res.project.complete = req.body.complete;
+    }
+
     const updatedProject = await res.project.save();
     res.json(updatedProject);
   } catch (err) {
