@@ -38,9 +38,9 @@ router.patch('/:id', getProject, async (req, res) => {
     res.project.details = req.body.details;
   }
   if (req.body.complete === true) {
-    req.body.complete = false;
+    res.project.complete = true;
   } else {
-    req.body.complete = true;
+    res.project.complete = false;
   }
 
   try {
