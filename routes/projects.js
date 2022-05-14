@@ -37,6 +37,11 @@ router.patch('/:id', getProject, async (req, res) => {
   if (req.body.details !== null) {
     res.project.details = req.body.details;
   }
+  if (req.body.complete === true) {
+    req.body.complete = false;
+  } else {
+    req.body.complete = true;
+  }
 
   try {
     const updatedProject = await res.project.save();
